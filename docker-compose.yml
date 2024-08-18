@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  llama:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        MODEL_ID: "Meta-Llama3.1-8B"
+        SIGNED_URL: "https://llama3-1.llamameta.net/*?Policy=eyJTdGF0ZW1lbnQiOlt7InVuaXF1ZV9oYXNoIjoibnB2M3o2ZTVmbDE1eHNubG52aTd4YmxoIiwiUmVzb3VyY2UiOiJodHRwczpcL1wvbGxhbWEzLTEubGxhbWFtZXRhLm5ldFwvKiIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTcyNDAxODQyM319fV19&Signature=vqf3nJTNka8WNBzxSQaxkNwRGs6SPYyHGcr7mk6Aa11h11Mz3lquz6HvnxPWat7zkYJHzlE8Kt%7E34o-7i88EE9iOiNEveknvhEQ3aMyQQkVy93mpP6gbjYdWy-e%7EhlsnafliwRCe9wbWWWebTk49Wnj4TFxhbLQfeRiZw9-p2TsiS-EJdXHDv%7Er3cReoKedxzWhFAEmrYX0dFfybbJLsCg4qFG3BDmP8qRP9TPPZhNY44MdpnbC7sOC8yKeTxkzTQvhrtai2FKT62zRCxJiWPYPsKqyfpxr7pkb7jKYJ2kuxzShmco6lO2k0eKpZKHfA8ERAWgrrgFxC5rSkHdsI3A__&Key-Pair-Id=K15QRJLYKIFSLZ&Download-Request-ID=1191486442176991"
+    volumes:
+      # - ./model_data:/root/.llama/checkpoints/
+      - ./llama-models/models:/app/models
+    stdin_open: true
+    tty: true
